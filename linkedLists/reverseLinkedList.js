@@ -56,20 +56,28 @@ class SLL {
         if (!this.head.next) {
             return this.head;
         }
-        let firstNode = this.head;
+        let current = this.head;
         this.tail = this.head;
-        let secondNode = firstNode.next;
-        while (secondNode) {
-            const temp = second.next;
-            second.next = firstNode;
-            firstNode = secondNode;
-            secondNode = temp;
+        let prev = null;
+        let next = null;
+        while (current !== null) {
+            next = current.next; // saves the next node
+            current.next = prev; // reverses the pointer
+            prev = current; // moves prev forward one node
+            current = next; // moves current forward one node
         }
-        this.head.next = null;
-        this.head = first;
+        this.head = prev; // sets this.head to prev because current has been set to null
         return this.printList();
     }
 }
+
+/*
+
+tail                           head
+  null <- 1 <- 10 <- 5 <- 16 <- 88   null
+                               prev  cur  next
+
+*/
 
 const myLinkedList = new SLL();
 myLinkedList.append(1);
@@ -77,4 +85,5 @@ myLinkedList.append(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(88);
+myLinkedList.reverse();
 console.log(myLinkedList.printList());
