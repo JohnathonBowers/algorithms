@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class Stack {
+class LLStack {
     constructor() {
         this.top = null;
         this.bottom = null;
@@ -45,12 +45,35 @@ class Stack {
     }
 }
 
-const myStack = new Stack();
-myStack.push('Google');
-myStack.push('Udemy');
-myStack.push('Discord');
-console.log(myStack.peek());
-myStack.pop();
-myStack.pop();
-myStack.pop();
-console.log(myStack);
+class ArrayStack {
+    constructor() {
+        this.array = [];
+    }
+    peek() {
+        return this.array[this.array.length - 1];
+    }
+    push(value) {
+        this.array.push(value);
+        return this;
+    }
+    pop() {
+        this.array.pop;
+        return this.array;
+    }
+}
+
+// const myStack = new LLStack();
+// myStack.push('Google');
+// myStack.push('Udemy');
+// myStack.push('Discord');
+// console.log(myStack.peek());
+// myStack.pop();
+// myStack.pop();
+// myStack.pop();
+// console.log(myStack);
+
+const myArrayStack = new ArrayStack();
+myArrayStack.push('Google');
+myArrayStack.push('Udemy');
+myArrayStack.push('Discord');
+console.log(myArrayStack);
