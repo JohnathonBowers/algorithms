@@ -57,7 +57,7 @@ class ArrayStack {
         return this;
     }
     pop() {
-        this.array.pop;
+        this.array.pop();
         return this.array;
     }
 }
