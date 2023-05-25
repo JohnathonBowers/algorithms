@@ -44,3 +44,25 @@ const reverse3 = str => str.split('').reverse().join('')
 const reverse4 = str => [...str].reverse().join('')
 
 console.log(reverse3("Johnathon"))
+
+function reverseString(str) {
+    const backwardsArray = [];
+    for (let i = str.length - 1; i >= 0; i--) {
+        backwardsArray.push(str[i])
+    }
+    const newString = backwardsArray.join('');
+    return newString;
+}
+
+console.log(reverseString('yoyo mastery'));
+
+// Andrei Neagoie's recursive solution
+function reverseStringRecursive(str) {
+    if (str === '') {
+        return '';
+    } else {
+        return reverseStringRecursive(str.substr(1)) + str.charAt(0);
+    }
+}
+
+reverseStringRecursive('yoyo master');
